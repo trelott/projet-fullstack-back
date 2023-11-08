@@ -12,8 +12,13 @@ public class CenterController {
     private CenterService centerService;
 
     @GetMapping("/public/center/city/{city}")
-    public List<Center> get(@PathVariable("city") String city) {
+    public List<Center> getAllByCity(@PathVariable("city") String city) {
         return centerService.findAllCenterByCity(city);
+    }
+
+    @GetMapping("/public/center/name/{name}")
+    public List<Center> getAllByName(@PathVariable("name") String name) {
+        return centerService.findAllCenterByName(name);
     }
 
     @GetMapping("/public/center/{id}")

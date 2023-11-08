@@ -9,4 +9,7 @@ import java.util.List;
 public interface CenterRepository extends JpaRepository<Center, Integer> {
     @Query("SELECT c FROM Center c where lower(c.city) LIKE lower(concat('%', :city, '%'))")
     public List<Center> findAllByCity(@Param("city") String city);
+
+    @Query("SELECT c FROM Center c where lower(c.name) LIKE lower(concat('%', :name, '%'))")
+    public List<Center> findAllByName(@Param("name") String name);
 }

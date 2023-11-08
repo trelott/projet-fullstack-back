@@ -15,6 +15,10 @@ public class CenterService {
         return centerRepository.findAll();
     }
 
+    public List<Center> findAllCenterByName(String name) {
+        return centerRepository.findAllByName(name);
+    }
+
     public List<Center> findAllCenterByCity (String city) {
         return centerRepository.findAllByCity(city);
     }
@@ -47,5 +51,4 @@ public class CenterService {
         if(center.isPresent()) centerRepository.deleteById(id);
         else throw new CenterNotFoundException();
     }
-
 }
