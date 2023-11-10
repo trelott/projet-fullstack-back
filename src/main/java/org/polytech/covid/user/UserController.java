@@ -16,13 +16,18 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/admin/user")
+    @GetMapping("/superadmin/user")
     public List<User> getAllUser(){
         return userService.findAllUser();
     }
 
+    @GetMapping("/admin/user/center/{id}")
+    public List<User> getAllUserByCenter(@PathVariable("id") Integer id){
+        return userService.findAllUserByCenter(id);
+    }
+
     @GetMapping("/admin/user/{id}")
-    public User getUserById(Integer id) {
+    public User getUserById(@PathVariable("id") Integer id) {
         return userService.findUserById(id);
     }
 

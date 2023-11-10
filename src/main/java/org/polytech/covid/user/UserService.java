@@ -44,6 +44,10 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
+    public List<User> findAllUserByCenter(Integer id) {
+        return userRepository.findAllByCenter(id);
+    }
+
     public User findUserById(Integer id) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findById(id);
 
