@@ -31,9 +31,8 @@ public class UserController {
         return userService.findUserById(id);
     }
 
-
     @PatchMapping("/admin/user/{id}")
-    public User updateUser(@PathVariable("id") Integer id, User updatedUser) {
+    public User updateUser(@PathVariable("id") Integer id, @RequestBody User updatedUser) {
         return userService.updateUser(id, updatedUser);
     }
 
