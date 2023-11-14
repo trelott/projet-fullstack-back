@@ -7,7 +7,7 @@ Lien pour le projet front: https://github.com/trelott/projet-fullstack-front
 ## Docker
 
 Pour lancer le projet, il suffit de cloner le projet:
-```git clone https://github.com/trelott/projet-fullstack-back```
+```git clone --branch jenkins-build https://github.com/trelott/projet-fullstack-back```
 
 Puis de lancer le docker compose:
 ```cd projet-fullstack-back && docker compose up -d```
