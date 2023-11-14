@@ -1,10 +1,10 @@
-FROM eclipse-temurin:17-jdk-jammy
+FROM gradle:8.4-jdk17
 
 WORKDIR /opt/app
 
 COPY . .
 
-CMD ["gradle", "build"]
+RUN gradle build
 
 FROM eclipse-temurin:17-jre-jammy
 
