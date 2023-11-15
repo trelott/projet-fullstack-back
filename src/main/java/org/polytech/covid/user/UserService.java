@@ -93,7 +93,7 @@ public class UserService implements UserDetailsService {
         user.setLastname(registerRequest.getLastname());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         user.setCenter(registerRequest.getCenter());
-        user.setRole(Role.USER);
+        user.setRole(registerRequest.getRole());
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
         AuthResponse authResponse = new AuthResponse();

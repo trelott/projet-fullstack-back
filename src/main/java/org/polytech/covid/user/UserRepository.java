@@ -13,9 +13,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("SELECT u FROM User u where u.center.id = :id")
     List<User> findAllByCenter(@Param("id") Integer id);
-
-    /*
-    @Query("SELECT c FROM user_info c where lower(c.firstname) LIKE lower(concat('%', :name, '%')) or lower(u.lastname) LIKE lower(concat('%', :name, '%'))")
-    List<Appointment> findAllByName(@Param("name") String name);
-    */
 }

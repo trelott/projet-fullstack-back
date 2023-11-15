@@ -1,6 +1,7 @@
 package org.polytech.covid.user;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.DynamicUpdate;
 import org.polytech.covid.center.Center;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-
-@Entity()
+@Entity
+@DynamicUpdate
 @Table(name = "user_info")
 public class User implements UserDetails {
     @Id
@@ -19,6 +20,7 @@ public class User implements UserDetails {
     private String firstname;
     private String lastname;
     private String email;
+    @Column(updatable = false)
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -121,3 +123,4 @@ public class User implements UserDetails {
         this.center = center;
     }
 }
+

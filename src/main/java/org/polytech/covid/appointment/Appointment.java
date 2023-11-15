@@ -2,6 +2,7 @@ package org.polytech.covid.appointment;
 
 import jakarta.persistence.*;
 import org.polytech.covid.center.Center;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -15,6 +16,7 @@ public class Appointment {
     private Integer phone;
     private String firstname;
     private String lastname;
+    @Temporal(TemporalType.DATE)
     private Date date;
     private Boolean vaccinated = false;
     @ManyToOne

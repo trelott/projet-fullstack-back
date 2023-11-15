@@ -3,6 +3,7 @@ package org.polytech.covid.appointment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -19,6 +20,11 @@ public class AppointmentController {
     @GetMapping("/user/appointment/name/{name}")
     public List<Appointment> getAppointmentByName(@PathVariable("name") String name) {
         return appointmentService.getAppointmentByName(name);
+    }
+
+    @GetMapping("/user/appointment/date/{date}")
+    public List<Appointment> getAppointmentByDate(@PathVariable("date") String date) {
+        return appointmentService.getAppointmentByDate(date);
     }
 
     @GetMapping("/user/appointment/{id}")

@@ -3,6 +3,9 @@ package org.polytech.covid.appointment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +27,17 @@ public class AppointmentService {
 
     public List<Appointment> getAppointmentByName(String name) {
         return this.appointmentRepository.findAllByName(name);
+    }
+
+    public List<Appointment> getAppointmentByDate(String dateString) {
+        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        Date date = null;
+        try {
+            date = isoFormat.parse(dateString);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        return this.appointmentRepository.findAllByDate(date);
     }
 
     public Appointment saveAppointment(Appointment newAppointment) {

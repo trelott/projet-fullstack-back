@@ -9,6 +9,7 @@ public class RegisterRequest {
     private String lastname;
 
     private Center center;
+    private Role role;
 
     public String getEmail() {
         return email;
@@ -44,5 +45,17 @@ public class RegisterRequest {
 
     public Center getCenter() {
         return center;
+    }
+
+    public void setCenter(Center center) {
+        this.center = center;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
