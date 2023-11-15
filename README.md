@@ -24,3 +24,12 @@ Et enfin créer un nouveau pipeline avec le code contenu dans le fichier 'Jenkin
 
 Il ne reste plus qu'à lancer le build pour build l'image docker et la push sur le hub, elle sera ensuite accessible avec 'charleswatrelot/covid-api'
 
+## Fonctionnalitées implémentées
+
+- [x] CRUD complet sur les rendez-vous
+- [x] CRUD complet sur les centres
+- [x] CRUD complet sur les utilisateurs
+- [x] Implémentation de l'authentification par JWT
+- [x] Sécurisation des routes en fonction du rôle
+- [ ] Test sur l'authentification
+
