@@ -3,6 +3,7 @@ package org.polytech.covid.center;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,12 @@ import java.util.Optional;
 public class CenterService {
     @Autowired
     private CenterRepository centerRepository;
+
+    public CenterService(
+            CenterRepository centerRepository
+    ){
+        this.centerRepository = centerRepository;
+    }
 
     public List<Center> findAllCenter () {
         return centerRepository.findAll();
@@ -25,7 +32,6 @@ public class CenterService {
 
     public Center findCenterById (Integer id) throws CenterNotFoundException {
         Optional<Center> foundCenter = centerRepository.findById(id);
-
         if (foundCenter.isPresent()) return foundCenter.get();
         else throw new CenterNotFoundException();
     }

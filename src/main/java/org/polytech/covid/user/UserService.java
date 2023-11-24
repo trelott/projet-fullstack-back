@@ -26,6 +26,12 @@ public class UserService implements UserDetailsService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    public UserService(
+            final UserRepository userRepository
+    ){
+        this.userRepository = userRepository;
+    }
+
     @PostConstruct
     public void defaultSuperAdmin() {
         Optional<User> superAdmin = this.userRepository.findByEmail("superAdmin@superAdmin.com");
