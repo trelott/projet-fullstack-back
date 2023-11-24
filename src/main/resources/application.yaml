@@ -12,8 +12,20 @@ spring:
     show-sql: true
     hibernate.ddl-auto: update
     properties.hibernate.format_sql: true
+
 logging:
   level:
     org:
       springframework:
         security: TRACE
+    io:
+      micrometer: DEBUG
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: info,health,beans,metrics,endpoints,mappings
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
