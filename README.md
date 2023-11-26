@@ -32,5 +32,5 @@ Il ne reste plus qu'à lancer le build pour build l'image docker et la push sur 
 - [x] Implémentation de l'authentification par JWT
 - [x] Sécurisation des routes en fonction du rôle
 - [x] Tests unitaires sur centerService
-- [ ] Test d'intégration sur centerController
+- [x] Test d'intégration sur centerController
 

@@ -1,0 +1,33 @@
+#SPRING CONFIGURATION
+spring:
+  liquibase:
+    enabled: false
+  datasource:
+    url: jdbc:h2:mem:demo
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: info
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: info,health,beans,metrics,endpoints,mappings
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
